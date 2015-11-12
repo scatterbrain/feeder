@@ -22,5 +22,7 @@ get(summary, E) ->
   E#entry.summary;
 get(title, E) ->
   E#entry.title;
+get(published, E) ->
+  E#entry.published;
 get(updated, E) ->
   E#entry.updated.

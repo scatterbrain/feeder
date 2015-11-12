@@ -13,6 +13,7 @@
   subtitle :: undefined | binary(),
   summary :: undefined | binary(),
   title :: undefined | binary(),
+  published :: undefined | binary(),  
   updated :: undefined | binary()
 }).
 
@@ -26,6 +27,7 @@
   subtitle :: undefined | binary(),
   summary :: undefined | binary(),
   title :: undefined | binary(),
+  published :: undefined | binary(),  
   updated :: undefined | binary()
 }).
 

@@ -62,6 +62,8 @@ feed(F, summary, State) ->
   update(F, #feed.summary, State#state.chars);
 feed(F, title, State) ->
   update(F, #feed.title, State#state.chars);
+feed(F, published, State) ->
+  update(F, #feed.published, State#state.chars);
 feed(F, updated, State) ->
   update(F, #feed.updated, State#state.chars);
 feed(F, _, _) ->
@@ -87,6 +89,8 @@ entry(E, summary, State) ->
   update(E, #entry.summary, State#state.chars);
 entry(E, title, State) ->
   update(E, #entry.title, State#state.chars);
+entry(E, published, State) ->
+  update(E, #entry.published, State#state.chars);
 entry(E, updated, State) ->
   update(E, #entry.updated, State#state.chars);
 entry(E, _, _) ->
@@ -205,10 +209,11 @@ qname({_, "item"}) -> entry;
 qname({_, "language"}) -> language;
 qname({_, "link"}) -> link;
 qname({_, "name"}) -> name;
-qname({_, "pubDate"}) -> updated;
+qname({_, "pubDate"}) -> published;
 qname({_, "subtitle"}) -> subtitle;
 qname({_, "summary"}) -> summary;
 qname({_, "title"}) -> title;
+qname({_, "published"}) -> published;
 qname({_, "updated"}) -> updated;
 qname({_, "url"}) -> url;
 qname({_, _}) -> undefined.
@@ -286,6 +291,7 @@ qname_test() -> q([
   {summary, ["summary", "description"]},
   {title, ["title"]},
   {undefined, ["wtf", "", "!"]},
-  {updated, ["updated", "pubDate"]}
+  {updated, ["updated"]}, 
+  {published, ["published", "pubDate"]}
 ]).
 -endif.
